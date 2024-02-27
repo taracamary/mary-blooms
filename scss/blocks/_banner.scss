@@ -1,0 +1,44 @@
+.banner {
+    background: #1E1E1E url('../../img/banner-bg.png') center / cover no-repeat;
+    height: rem-calc(1244);
+    color: $white;
+    text-align: center;
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+    }
+}
+
+.banner-title {
+    font-weight: 300;
+    font-size: rem-calc(200);
+    font-family: $cormorant-font;
+    letter-spacing: rem-calc(40);
+    text-transform: uppercase;
+
+    &__second {
+        margin-top: rem-calc(-70);
+    }
+}
+
+.banner-description {
+    font-size: rem-calc(40);
+    font-family: $oswald-font;
+    letter-spacing: rem-calc(2);
+}
+
+.banner-socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // backdrop-filter: blur(10px);
+    border-radius: rem-calc(10);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: rem-calc(18) rem-calc(20);
+    width: rem-calc(154);
+    height: rem-calc(60);
+}

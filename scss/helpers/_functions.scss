@@ -1,6 +1,6 @@
 @function rem-calc($value) {
-   $rem-value: ($value / 16) * 1rem;
-   $rounded-value: round($rem-value * 100) / 100;
+   $rem-value: calc($value / 16) * 1rem;
+   $rounded-value: calc(round($rem-value * 100) / 100);
    @return $rounded-value;
 }
 

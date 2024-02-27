@@ -1,72 +1,60 @@
 /* Color pallet */
-/* Font size */
 /* Font family */
-/* Font weight */
 /* Media breakpoint */
 /*
-  key points: 576 - xs, 768 -sm , 992 - md, 1200 - lg
+  key points: xs: 0,
+              sm: 576px,
+              md: 768px,
+              lg: 992px,
+              xl: 1200px,
+              xxl: 1400px
 */
 @font-face {
-  font-family: "Inter";
+  font-family: "Cormorant";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Cormorant"), url("../fonts/Cormorant/Cormorant-Light.woff2") format("woff2"), url("../fonts/Cormorant/Cormorant-Light.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
   font-style: normal;
   font-weight: 400;
-  src: local("Inter"), url("../fonts/Inter/Inter-Regular.woff2") format("woff2"), url("../fonts/Inter/Inter-Regular.woff") format("woff");
+  src: local("Cormorant"), url("../fonts/Cormorant/Cormorant-Regular.woff2") format("woff2"), url("../fonts/Cormorant/Cormorant-Regular.woff") format("woff");
   font-display: swap;
 }
 @font-face {
-  font-family: "Lora";
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 200;
+  src: local("Oswald"), url("../fonts/Oswald/Oswald-ExtraLight.woff2") format("woff2"), url("../fonts/Oswald/Oswald-ExtraLight.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Oswald"), url("../fonts/Oswald/Oswald-Light.woff2") format("woff2"), url("../fonts/Oswald/Oswald-Light.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
-  src: local("Lora"), url("../fonts/Lora/Lora-Regular.woff2") format("woff2"), url("../fonts/Lora/Lora-Regular.woff") format("woff");
+  src: local("Oswald"), url("../fonts/Oswald/Oswald-Regular.woff2") format("woff2"), url("../fonts/Oswald/Oswald-Regular.woff") format("woff");
   font-display: swap;
 }
 @font-face {
-  font-family: "Lora";
-  font-style: normal;
-  font-weight: 500;
-  src: local("Lora"), url("../fonts/Lora/Lora-Medium.woff2") format("woff2"), url("../fonts/Lora/Lora-Medium.woff") format("woff");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Lora";
+  font-family: "Oswald";
   font-style: normal;
   font-weight: 700;
-  src: local("Lora"), url("../fonts/Lora/Lora-Bold.woff2") format("woff2"), url("../fonts/Lora/Lora-Bold.woff") format("woff");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Poppins"), url("../fonts/Poppins/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins/Poppins-Regular.woff") format("woff");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  src: local("Poppins"), url("../fonts/Poppins/Poppins-Medium.woff2") format("woff2"), url("../fonts/Poppins/Poppins-Medium.woff") format("woff");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  src: local("Poppins"), url("../fonts/Poppins/Poppins-SemiBold.woff2") format("woff2"), url("../fonts/Poppins/Poppins-SemiBold.woff") format("woff");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Purple Purse";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Purple Purse"), url("../fonts/Purple_Purse/PurplePurse-Regular.woff2") format("woff2"), url("../fonts/Purple_Purse/PurplePurse-Regular.woff") format("woff");
+  src: local("Oswald"), url("../fonts/Oswald/Oswald-Bold.woff2") format("woff2"), url("../fonts/Oswald/Oswald-Bold.woff") format("woff");
   font-display: swap;
 }
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
@@ -74,25 +62,14 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: "Lora", "Arial", sans-serif;
-  font-size: 1rem;
+  color: #FFFFFF;
   font-weight: 400;
+  font-family: "Oswald", "Arial", sans-serif;
 }
 
-body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+h1, h2, h3, h4, h5, h6,
+p {
+  margin: 0;
 }
 
 ul {
@@ -112,37 +89,79 @@ img {
 }
 
 .container {
-  width: 100%;
-  max-width: 86.69rem;
-  height: 100%;
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
+  max-width: 73.38rem;
+  height: 100%;
 }
 
 .visually-hidden {
-  position: absolute;
   clip: rect(0 0 0 0);
+  position: absolute;
+  margin: -1px;
   width: 1px;
   height: 1px;
-  margin: -1px;
 }
 
 .reset-button {
   margin: 0;
+  outline: none;
+  border: none;
+  background: transparent;
   padding: 0;
   width: auto;
-  font: inherit;
-  text-align: inherit;
-  line-height: normal;
-  background: transparent;
-  border: none;
-  color: inherit;
   overflow: visible;
-  outline: none;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  text-align: inherit;
 }
 .reset-button :focus:not(:focus-visible) {
   outline: none;
 }
 .reset-button :focus:not(:-moz-focusring) {
   outline: none;
+}
+
+.banner {
+  background: #1E1E1E url("../../img/banner-bg.png") center/cover no-repeat;
+  height: 77.75rem;
+  color: #FFFFFF;
+  text-align: center;
+}
+.banner__wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.banner-title {
+  font-weight: 300;
+  font-size: 12.5rem;
+  font-family: "Cormorant", "Arial", sans-serif;
+  letter-spacing: 2.5rem;
+  text-transform: uppercase;
+}
+.banner-title__second {
+  margin-top: -4.38rem;
+}
+
+.banner-description {
+  font-size: 2.5rem;
+  font-family: "Oswald", "Arial", sans-serif;
+  letter-spacing: 0.13rem;
+}
+
+.banner-socials {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.63rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1.13rem 1.25rem;
+  width: 9.63rem;
+  height: 3.75rem;
 }/*# sourceMappingURL=styles.css.map */

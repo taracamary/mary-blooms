@@ -1,3 +1,5 @@
+@import "functions";
+
 /* Color pallet */
 
 $black:      #040A0A;
@@ -6,22 +8,10 @@ $pink:       #7D2253;
 $pink-100:   #D978AC;
 $white:      #FFFFFF;
 
-/* Font size */
-
-$font-size-16: rem-calc(16);
-
 /* Font family */
 
 $oswald-font:       "Oswald", "Arial", sans-serif;
 $cormorant-font:    "Cormorant", "Arial", sans-serif;
-
-/* Font weight */
-
-$font-weight-extra-light:   200;
-$font-weight-light:         300;
-$font-weight-regular:       400;
-$font-weight-medium:        500;
-$font-weight-bold:          700;
 
 /* Media breakpoint */
 

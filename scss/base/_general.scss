@@ -1,0 +1,40 @@
+@import "../helpers/mixins";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: $white;
+    font-weight: 400;
+    font-family: $oswald-font;
+}
+
+h1, h2, h3, h4, h5, h6,
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+img {
+    max-width: 100%;
+}

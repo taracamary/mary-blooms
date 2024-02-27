@@ -1,31 +1,31 @@
 .container {
-   width: 100%;
-   max-width: rem-calc(1387);
-   height: 100%;
    margin: 0 auto;
    padding: 0 rem-calc(32);
+   width: 100%;
+   max-width: rem-calc(1174);
+   height: 100%;
 }
 
 .visually-hidden {
-   position: absolute;
    clip: rect(0 0 0 0);
+   position: absolute;
+   margin: -1px;
    width: 1px;
    height: 1px;
-   margin: -1px;
 }
 
 .reset-button {
    margin: 0;
+   outline: none;
+   border: none;
+   background: transparent;
    padding: 0;
    width: auto;
-   font: inherit;
-   text-align: inherit;
-   line-height: normal;
-   background: transparent;
-   border: none;
-   color: inherit;
    overflow: visible;
-   outline: none;
+   color: inherit;
+   font: inherit;
+   line-height: normal;
+   text-align: inherit;
 
    :focus:not(:focus-visible) {
       outline: none;

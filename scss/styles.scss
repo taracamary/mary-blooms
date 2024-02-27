@@ -1,9 +1,17 @@
-@import "functions";
-@import "variables";
-@import "mixins";
+// Переменные, миксины, функции
+@import "helpers/variables";
+@import "helpers/media-breakpoint";
+@import "helpers/mixins";
+@import "helpers/functions";
 
-@import "fonts";
-@import "base";
-@import "shared";
+// CSS-файлы библиотек
+@import "vendor/libs";
 
-@import "components";
+// Основное
+@import "base/fonts";
+@import "base/general";
+@import "base/shared";
+@import "base/sprite";
+
+// БЭМ-блоки
+@import "blocks/banner";
