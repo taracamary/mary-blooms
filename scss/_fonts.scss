@@ -1,63 +1,47 @@
 @font-face {
-   font-family: "Inter";
+   font-family: "Cormorant";
+   font-style: normal;
+   font-weight: 300;
+   src: local("Cormorant"), url('../fonts/Cormorant/Cormorant-Light.woff2') format('woff2'), url('../fonts/Cormorant/Cormorant-Light.woff') format('woff');
+   font-display: swap;
+}
+
+@font-face {
+   font-family: "Cormorant";
    font-style: normal;
    font-weight: 400;
-   src: local("Inter"), url('../fonts/Inter/Inter-Regular.woff2') format('woff2'), url('../fonts/Inter/Inter-Regular.woff') format('woff');
+   src: local("Cormorant"), url('../fonts/Cormorant/Cormorant-Regular.woff2') format('woff2'), url('../fonts/Cormorant/Cormorant-Regular.woff') format('woff');
    font-display: swap;
 }
 
 @font-face {
-   font-family: "Lora";
+   font-family: "Oswald";
+   font-style: normal;
+   font-weight: 200;
+   src: local("Oswald"), url('../fonts/Oswald/Oswald-ExtraLight.woff2') format('woff2'), url('../fonts/Oswald/Oswald-ExtraLight.woff') format('woff');
+   font-display: swap;
+}
+
+@font-face {
+   font-family: "Oswald";
+   font-style: normal;
+   font-weight: 300;
+   src: local("Oswald"), url('../fonts/Oswald/Oswald-Light.woff2') format('woff2'), url('../fonts/Oswald/Oswald-Light.woff') format('woff');
+   font-display: swap;
+}
+
+@font-face {
+   font-family: "Oswald";
    font-style: normal;
    font-weight: 400;
-   src: local("Lora"), url('../fonts/Lora/Lora-Regular.woff2') format('woff2'), url('../fonts/Lora/Lora-Regular.woff') format('woff');
+   src: local("Oswald"), url('../fonts/Oswald/Oswald-Regular.woff2') format('woff2'), url('../fonts/Oswald/Oswald-Regular.woff') format('woff');
    font-display: swap;
 }
 
 @font-face {
-   font-family: "Lora";
-   font-style: normal;
-   font-weight: 500;
-   src: local("Lora"), url('../fonts/Lora/Lora-Medium.woff2') format('woff2'), url('../fonts/Lora/Lora-Medium.woff') format('woff');
-   font-display: swap;
-}
-
-@font-face {
-   font-family: "Lora";
+   font-family: "Oswald";
    font-style: normal;
    font-weight: 700;
-   src: local("Lora"), url('../fonts/Lora/Lora-Bold.woff2') format('woff2'), url('../fonts/Lora/Lora-Bold.woff') format('woff');
-   font-display: swap;
-}
-
-@font-face {
-   font-family: "Poppins";
-   font-style: normal;
-   font-weight: 400;
-   src: local("Poppins"), url('../fonts/Poppins/Poppins-Regular.woff2') format('woff2'), url('../fonts/Poppins/Poppins-Regular.woff') format('woff');
-   font-display: swap;
-}
-
-@font-face {
-   font-family: "Poppins";
-   font-style: normal;
-   font-weight: 500;
-   src: local("Poppins"), url('../fonts/Poppins/Poppins-Medium.woff2') format('woff2'), url('../fonts/Poppins/Poppins-Medium.woff') format('woff');
-   font-display: swap;
-}
-
-@font-face {
-   font-family: "Poppins";
-   font-style: normal;
-   font-weight: 600;
-   src: local("Poppins"), url('../fonts/Poppins/Poppins-SemiBold.woff2') format('woff2'), url('../fonts/Poppins/Poppins-SemiBold.woff') format('woff');
-   font-display: swap;
-}
-
-@font-face {
-   font-family: "Purple Purse";
-   font-style: normal;
-   font-weight: 400;
-   src: local("Purple Purse"), url('../fonts/Purple_Purse/PurplePurse-Regular.woff2') format('woff2'), url('../fonts/Purple_Purse/PurplePurse-Regular.woff') format('woff');
+   src: local("Oswald"), url('../fonts/Oswald/Oswald-Bold.woff2') format('woff2'), url('../fonts/Oswald/Oswald-Bold.woff') format('woff');
    font-display: swap;
 }
