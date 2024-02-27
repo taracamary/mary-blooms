@@ -1,0 +1,37 @@
+.container {
+   width: 100%;
+   max-width: rem-calc(1387);
+   height: 100%;
+   margin: 0 auto;
+   padding: 0 rem-calc(32);
+}
+
+.visually-hidden {
+   position: absolute;
+   clip: rect(0 0 0 0);
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+}
+
+.reset-button {
+   margin: 0;
+   padding: 0;
+   width: auto;
+   font: inherit;
+   text-align: inherit;
+   line-height: normal;
+   background: transparent;
+   border: none;
+   color: inherit;
+   overflow: visible;
+   outline: none;
+
+   :focus:not(:focus-visible) {
+      outline: none;
+   }
+
+   :focus:not(:-moz-focusring) {
+      outline: none;
+   }
+}

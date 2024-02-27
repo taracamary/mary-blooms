@@ -1,0 +1,57 @@
+/* Color pallet */
+
+$black:      #000000; // #0.00
+$black-100:  #030c0c; // #9.30
+$gray:       #313131; // #48.95
+$gray-100:   #333333; // #50.95
+$gray-150:   #555555; // #84.92
+$gray-200:   #655e66; // #96.90
+$gray-250:   #666666; // #101.90
+$gray-300:   #808080; // #127.87
+$gray-350:   #a7a7a7; // #166.83
+$gray-400:   #c3bec6; // #192.21
+$gray-450:   #e0e0e0; // #223.78
+$gray-500:   #e1e1e1; // #224.78
+$gray-550:   #e5e5e5; // #228.77
+$green:      #046d1e; // #68.57
+$green-100:  #008621; // #82.39
+$green-200:  #05a42c; // #102.74
+$green-300:  #83b08e; // #158.53
+$green-400:  #c9fdd6; // #232.79
+$green-500:  #e4f3e8; // #237.03
+$red:        #ff5b5b; // #139.95
+$brown:      #c9874b; // #147.82
+$brown-100:  #d1945c; // #159.76
+$orange:     #ff8a00; // #157.25
+$purple:     #ac9fb5; // #165.21
+$blue:       #9ddced; // #202.86
+$blue-100:   #bdeffc; // #225.28
+$white:      #ffffff; // #254.75
+$white-100:  #fbfbfb; // #250.75
+$white-200:  #f9fcfb; // #250.74
+$white-300:  #f1fef4; // #248.73
+
+/* Font size */
+
+$font-size-16: rem-calc(16);
+
+/* Font family */
+
+$inter-font:         "Inter", "Arial", sans-serif;
+$lora-font:          "Lora", "Arial", sans-serif;
+$poppins-font:       "Poppins", "Arial", sans-serif;
+$purple-purse-font:  "Purple Purse", "Arial", sans-serif;
+
+/* Font weight */
+
+$font-weight-regular:      400;
+$font-weight-medium:       500;
+$font-weight-semi-bold:    600;
+$font-weight-bold:         700;
+
+/* Media breakpoint */
+
+$breakpoint-xs:   rem-calc(576);
+$breakpoint-sm:   rem-calc(768);
+$breakpoint-md:   rem-calc(992);
+$breakpoint-lg:   rem-calc(1200);

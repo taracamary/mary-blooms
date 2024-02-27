@@ -1,0 +1,11 @@
+@function rem-calc($value) {
+   $rem-value: ($value / 16) * 1rem;
+   $rounded-value: round($rem-value * 100) / 100;
+   @return $rounded-value;
+}
+
+@function unitless-lh($fs, $lh) {
+   $base-value: $lh / $fs;
+   $main-value: round($base-value * 100) / 100;
+   @return $main-value;
+}
