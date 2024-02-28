@@ -125,7 +125,7 @@ img {
 }
 
 .banner {
-  background: url("../../img/banner-bg.png") center/cover no-repeat #1E1E1E;
+  background: url("../img/banner-bg.png") center/cover no-repeat #1E1E1E;
   height: 77.75rem;
   color: #FFFFFF;
   text-align: center;
