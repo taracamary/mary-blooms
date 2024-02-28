@@ -1,6 +1,5 @@
 .banner {
-    background: #1E1E1E url('../../img/banner-bg.png') center / cover no-repeat;
-    background: #1E1E1E url('img/banner-bg.png') center / cover no-repeat;
+    background: url('../../img/banner-bg.png') center / cover no-repeat #1E1E1E;
     height: rem-calc(1244);
     color: $white;
     text-align: center;
@@ -36,10 +35,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border-radius: rem-calc(10);
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: rem-calc(18) rem-calc(20);
-    width: rem-calc(154);
-    height: rem-calc(60);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: rem-calc(20) rem-calc(20);
+    gap: rem-calc(20);
 }

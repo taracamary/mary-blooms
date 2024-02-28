@@ -125,8 +125,7 @@ img {
 }
 
 .banner {
-  background: #1E1E1E url("../../img/banner-bg.png") center/cover no-repeat;
-  background: #1E1E1E url("img/banner-bg.png") center/cover no-repeat;
+  background: url("../../img/banner-bg.png") center/cover no-repeat #1E1E1E;
   height: 77.75rem;
   color: #FFFFFF;
   text-align: center;
@@ -160,9 +159,10 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   border-radius: 0.63rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 1.13rem 1.25rem;
-  width: 9.63rem;
-  height: 3.75rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1.25rem 1.25rem;
+  gap: 1.25rem;
 }/*# sourceMappingURL=styles.css.map */
