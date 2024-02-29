@@ -60,6 +60,7 @@
 html,
 body {
   margin: 0;
+  background-color: #040A0A;
   padding: 0;
   height: 100%;
   color: #FFFFFF;
@@ -125,9 +126,8 @@ img {
 }
 
 .banner {
-  background: url("../img/banner-bg.png") center/cover no-repeat #1E1E1E;
-  height: 77.75rem;
-  color: #FFFFFF;
+  background: url("../img/banner-bg.png") center/cover no-repeat #040A0A;
+  min-height: 77.75rem;
   text-align: center;
 }
 .banner__wrap {
@@ -159,10 +159,23 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2.5rem;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   border-radius: 0.63rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 1.25rem 1.25rem;
-  gap: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1.25rem 2.5rem;
+}
+
+.services {
+  background: url("../img/services-bg.png") center/100% 100% no-repeat #040A0A;
+  padding-top: 6.25rem;
+  padding-bottom: 11.88rem;
+  min-height: 64.31rem;
+}
+.services__title {
+  font-weight: 300;
+  font-size: 6.25rem;
+  font-family: "Cormorant", "Arial", sans-serif;
+  text-transform: uppercase;
 }/*# sourceMappingURL=styles.css.map */

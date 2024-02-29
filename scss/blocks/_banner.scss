@@ -1,7 +1,6 @@
 .banner {
-    background: url('../img/banner-bg.png') center / cover no-repeat #1E1E1E;
-    height: rem-calc(1244);
-    color: $white;
+    background: url('../img/banner-bg.png') center / cover no-repeat #040A0A;
+    min-height: rem-calc(1244);
     text-align: center;
 
     &__wrap {
@@ -35,9 +34,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: rem-calc(40);
     backdrop-filter: blur(10px);
     border-radius: rem-calc(10);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: rem-calc(20) rem-calc(20);
-    gap: rem-calc(20);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: rem-calc(20) rem-calc(40);
 }
