@@ -1,13 +1,55 @@
 .services {
     background: url('../img/services-bg.png') center / 100% 100% no-repeat #040A0A;
     padding-top: rem-calc(100);
-    padding-bottom: rem-calc(190);
-    min-height: rem-calc(1029);
+    padding-bottom: rem-calc(100);
+    
+    &__wrap {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem-calc(30);
+    }
+}
+
+.services-card {
+    backdrop-filter: blur(rem-calc(10));
+    border-radius: rem-calc(20);
+    background: rgba(0, 0, 0, 0.2);
+    padding: rem-calc(30) rem-calc(50);
+    height: max-content;
 
     &__title {
-        font-weight: 300;
-        font-size: rem-calc(100);
-        font-family: $cormorant-font;
+        margin-bottom: rem-calc(10);
+        color: $blue;
+        font-weight: 700;
+        font-size: rem-calc(30);
+        line-height: 1.5;
         text-transform: uppercase;
+    }
+
+    &__text {
+        margin-bottom: rem-calc(10);
+        font-weight: 300;
+        font-size: rem-calc(20);
+        line-height: 1.5;
+    }
+
+    &__list {
+        margin-bottom: rem-calc(10);
+        padding-left: rem-calc(20);
+        list-style-type: circle;
+
+        &--ordered {
+            list-style-type: decimal;
+        }
+    }
+
+    &__item {
+        font-weight: 300;
+        font-size: rem-calc(20);
+        line-height: 1.5;
+
+        &:not(:last-child) {
+            margin-bottom: rem-calc(10);
+        }
     }
 }

@@ -1,0 +1,42 @@
+.advice {
+    background: url('../img/advice-bg.png') left center / contain no-repeat #040A0A;
+    padding-top: rem-calc(100);
+    padding-bottom: rem-calc(100);
+
+    &__wrap {
+        padding-left: 30%;
+        border-right: 1px solid $pink-100;
+    }
+
+    &__line {
+        margin-top: rem-calc(15);
+        margin-bottom: rem-calc(40);
+        background-color: $pink-100;
+        width: rem-calc(65);
+        height: rem-calc(10);
+    }
+}
+
+.advice-step {
+    max-width: rem-calc(265);
+
+    &:not(:last-child) {
+        margin-bottom: rem-calc(40);
+    }
+
+    &__title {
+        margin-bottom: rem-calc(12);
+        color: $pink-100;
+        font-weight: 700;
+        font-size: rem-calc(30);
+        line-height: 1.4;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        font-weight: 300;
+        font-size: rem-calc(14);
+        line-height: 1.4;
+        text-transform: uppercase;
+    }
+}

@@ -35,3 +35,11 @@
       outline: none;
    }
 }
+
+.section-title {
+   font-weight: 300;
+   font-size: rem-calc(100);
+   line-height: 1.2;
+   font-family: $cormorant-font;
+   text-transform: uppercase;
+}
