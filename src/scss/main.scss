@@ -1,0 +1,76 @@
+@use "base/reset";
+@use "base/typography";
+@use "layout/container";
+@use "layout/header";
+@use "layout/footer";
+@use "components/button";
+@use "components/section-title";
+@use "components/card";
+@use "components/faq";
+@use "blocks/hero";
+@use "blocks/problems";
+@use "blocks/cheatsheet";
+@use "blocks/about";
+@use "blocks/telegram-cta";
+@use "blocks/sticky-cta";
+
+@use "abstracts/variables" as *;
+
+.page {
+  overflow-x: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.leaf-icon {
+  width: 15px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.final-cta {
+  padding: 80px 0;
+  background-color: $color-bg-cream;
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    max-width: 640px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1.25;
+    color: $color-green;
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 28px;
+    color: $color-text;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 48px 0 64px;
+
+    .button--wide {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+}

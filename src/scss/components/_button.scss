@@ -1,0 +1,67 @@
+@use "sass:color";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: $radius-pill;
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  @include focus-ring;
+
+  &--primary {
+    background-color: $color-accent;
+    color: $color-white;
+
+    &:hover {
+      background-color: color.adjust($color-accent, $lightness: -6%);
+    }
+  }
+
+  &--secondary {
+    background-color: $color-bg-cream;
+    color: $color-text;
+
+    &:hover {
+      background-color: color.adjust($color-bg-cream, $lightness: -4%);
+    }
+  }
+
+  &--wide {
+    min-width: min(299px, 100%);
+    min-height: 56px;
+  }
+
+  &--outline {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    color: $color-white;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  &--telegram {
+    background-color: $color-bg-cream;
+    color: $color-green;
+
+    &:hover {
+      background-color: color.adjust($color-bg-cream, $lightness: -4%);
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

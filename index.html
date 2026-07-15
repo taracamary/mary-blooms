@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Бесплатная PDF-шпаргалка в Telegram: почему желтеют листья, появляются пятна и растение не растёт. Mary Blooms — эксперт по комнатным растениям."
+    />
+    <title>Mary Blooms — бесплатная шпаргалка по уходу за растениями</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alice&family=Philosopher:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="page">
+    <header class="header" id="header">
+      <div class="header__inner">
+        <a class="header__logo" href="#">Mary Blooms</a>
+
+        <button
+          class="header__burger"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          data-burger
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="header__nav" id="main-nav" aria-label="Основная навигация">
+          <ul class="header__menu">
+            <li><a class="header__link" href="#problems">Проблемы</a></li>
+            <li><a class="header__link" href="#cheatsheet">Шпаргалка</a></li>
+            <li><a class="header__link" href="#about">Обо мне</a></li>
+            <li><a class="header__link" href="#faq">Вопросы</a></li>
+          </ul>
+          <a
+            class="button button--primary header__cta"
+            data-bot-cta
+            href="https://t.me/MaryBloomsBot?start=shpargalka"
+          >
+            Получить шпаргалку в Telegram
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-hook">
+        <div class="hero__bg" aria-hidden="true">
+          <picture>
+            <source srcset="assets/images/hero-bg.webp" type="image/webp" />
+            <img src="assets/images/hero-bg.jpg" alt="" width="1440" height="800" fetchpriority="high" />
+          </picture>
+        </div>
+
+        <div class="hero__content">
+          <h1 class="hero__hook" id="hero-hook">
+            Листья желтеют, появились пятна или растение перестало расти?
+          </h1>
+
+          <p class="hero__brand">
+            Mary Blooms <span class="hero__brand-accent">plants</span>
+          </p>
+
+          <p class="hero__badge">PDF-шпаргалка · бесплатно · в Telegram</p>
+
+          <p class="hero__text">
+            Бесплатная PDF-шпаргалка: что проверить в первые дни и какие ошибки
+            ухода чаще всего убивают растения — без десятка советов из интернета.
+          </p>
+
+          <div class="hero__actions">
+            <a
+              class="button button--primary button--wide"
+              data-bot-cta
+              href="https://t.me/MaryBloomsBot?start=shpargalka"
+            >
+              Получить шпаргалку в Telegram
+            </a>
+          </div>
+
+          <p class="hero__note">Бесплатно · откройте бота и нажмите Start</p>
+        </div>
+      </section>
+
+      <section class="problems" id="problems" aria-labelledby="problems-title">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title" id="problems-title">Узнаёте себя?</h2>
+            <span class="section-title__underline" aria-hidden="true"></span>
+          </header>
+
+          <div class="problems__grid">
+            <article class="problems__item card card--overlay">
+              <picture>
+                <source srcset="assets/images/problem-1.webp" type="image/webp" />
+                <img
+                  class="card__image"
+                  src="assets/images/problem-1.jpg"
+                  alt="Желтеющие листья комнатного растения"
+                  width="626"
+                  height="260"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="card__content">
+                <h3 class="card__title">Желтеют листья</h3>
+                <p class="card__text">
+                  Листья желтеют один за другим — и неясно, перелив это, свет
+                  или что-то серьёзнее.
+                </p>
+              </div>
+            </article>
+
+            <article class="problems__item card card--overlay">
+              <picture>
+                <source srcset="assets/images/problem-3.webp" type="image/webp" />
+                <img
+                  class="card__image"
+                  src="assets/images/problem-3.jpg"
+                  alt="Пятна на листьях"
+                  width="299"
+                  height="260"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="card__content">
+                <h3 class="card__title">Пятна на листьях</h3>
+                <p class="card__text">
+                  Коричневые или светлые пятна — и каждый совет в сети говорит
+                  разное.
+                </p>
+              </div>
+            </article>
+
+            <article class="problems__item card card--overlay">
+              <picture>
+                <source srcset="assets/images/problem-2.webp" type="image/webp" />
+                <img
+                  class="card__image"
+                  src="assets/images/problem-2.jpg"
+                  alt="Растение не растёт"
+                  width="299"
+                  height="260"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="card__content">
+                <h3 class="card__title">Растение не растёт</h3>
+                <p class="card__text">
+                  Прошли недели, а новых листьев нет — непонятно, ждать или уже
+                  что-то менять.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cheatsheet" id="cheatsheet" aria-labelledby="cheatsheet-title">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title" id="cheatsheet-title">Что внутри шпаргалки</h2>
+            <span class="section-title__underline" aria-hidden="true"></span>
+          </header>
+
+          <div class="cheatsheet__inner">
+            <ul class="cheatsheet__list">
+              <li class="cheatsheet__item">
+                <span class="cheatsheet__number" aria-hidden="true">01</span>
+                <div>
+                  <h3 class="cheatsheet__title">Почему желтеют листья и появляются пятна</h3>
+                  <p class="cheatsheet__text">
+                    Поймёте, полив это, свет, грунт или что-то ещё — без десяти
+                    вкладок в Google.
+                  </p>
+                </div>
+              </li>
+              <li class="cheatsheet__item">
+                <span class="cheatsheet__number" aria-hidden="true">02</span>
+                <div>
+                  <h3 class="cheatsheet__title">Что проверить, прежде чем «лечить»</h3>
+                  <p class="cheatsheet__text">
+                    Чек-лист вопросов, чтобы не пересадить и не перелить зря.
+                  </p>
+                </div>
+              </li>
+              <li class="cheatsheet__item">
+                <span class="cheatsheet__number" aria-hidden="true">03</span>
+                <div>
+                  <h3 class="cheatsheet__title">Ошибки, из-за которых растение не растёт</h3>
+                  <p class="cheatsheet__text">
+                    Увидите, что вы уже делаете не так — и что изменить в первую
+                    очередь.
+                  </p>
+                </div>
+              </li>
+              <li class="cheatsheet__item">
+                <span class="cheatsheet__number" aria-hidden="true">04</span>
+                <div>
+                  <h3 class="cheatsheet__title">Первые шаги, если непонятно, что делать</h3>
+                  <p class="cheatsheet__text">
+                    Простой план: свет, полив, грунт — по шагам, без паники.
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="cheatsheet__visual">
+              <picture>
+                <source srcset="assets/images/cheatsheet-plant.webp" type="image/webp" />
+                <img
+                  class="cheatsheet__image"
+                  src="assets/images/cheatsheet-plant.jpg"
+                  alt="Здоровое комнатное растение в горшке"
+                  width="565"
+                  height="730"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="telegram-cta" id="get-guide" aria-labelledby="guide-title">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title" id="guide-title">
+              Получите PDF-шпаргалку в Telegram
+            </h2>
+            <span class="section-title__underline" aria-hidden="true"></span>
+          </header>
+
+          <div class="telegram-cta__box">
+            <div class="telegram-cta__content">
+              <p class="telegram-cta__intro">
+                Нажмите кнопку, откройте бота в Telegram и нажмите <strong>Start</strong>
+                — PDF придёт сразу. Бесплатно, без регистрации.
+              </p>
+
+              <ol class="telegram-cta__steps">
+                <li>Нажмите «Получить шпаргалку в Telegram»</li>
+                <li>Откройте бота и нажмите Start — без этого PDF не придёт</li>
+                <li>Получите PDF-шпаргалку в чате за несколько секунд</li>
+              </ol>
+
+              <a
+                class="button button--primary button--wide"
+                data-bot-cta
+                href="https://t.me/MaryBloomsBot?start=shpargalka"
+              >
+                Получить шпаргалку в Telegram
+              </a>
+
+              <p class="telegram-cta__note">
+                Бот Mary Blooms отправляет только бесплатную PDF-шпаргалку.
+              </p>
+            </div>
+
+            <div class="telegram-cta__visual">
+              <picture>
+                <source srcset="assets/images/form-plant.webp" type="image/webp" />
+                <img
+                  class="telegram-cta__image"
+                  src="assets/images/form-plant.jpg"
+                  alt="Комнатные растения в декоративных горшках"
+                  width="526"
+                  height="555"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <div class="about__inner">
+            <picture>
+              <source srcset="assets/images/about.webp" type="image/webp" />
+              <img
+                class="about__photo"
+                src="assets/images/about.jpg"
+                alt="Мария — эксперт по комнатным растениям Mary Blooms"
+                width="626"
+                height="548"
+                loading="lazy"
+              />
+            </picture>
+
+            <div class="about__content">
+              <header class="section-header">
+                <h2 class="section-title" id="about-title">Привет, я Мария!</h2>
+                <span class="section-title__underline" aria-hidden="true"></span>
+              </header>
+
+              <p class="about__lead">
+                Я разбираюсь с теми же ситуациями, что и у вас: желтеют листья,
+                появляются пятна, растение стоит на месте — а в интернете каждый
+                советует своё.
+              </p>
+
+              <p class="about__text">
+                Веду блог о комнатных растениях и делюсь понятными материалами
+                по уходу. В Telegram-чате уже более 200 человек, которые
+                разбираются с похожими проблемами.
+              </p>
+
+              <div class="about__stats">
+                <div class="about__stat">
+                  <strong>200+</strong>
+                  в Telegram-чате
+                </div>
+                <div class="about__stat">
+                  <strong>Опыт</strong>
+                  с комнатными растениями
+                </div>
+                <div class="about__stat">
+                  <strong>Бесплатно</strong>
+                  PDF-шпаргалка в боте
+                </div>
+              </div>
+
+              <div class="about__community">
+                <p class="about__community-text">
+                  В Telegram-сообществе Mary Blooms уже более 200 человек —
+                  делятся опытом, задают вопросы и разбирают похожие ситуации
+                  с комнатными растениями.
+                </p>
+                <a
+                  class="button button--secondary"
+                  href="https://t.me/maryblooms_chat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Присоединиться к Telegram-чату
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__reviews" aria-label="Отзывы о шпаргалке">
+            <blockquote class="about__review">
+              <p>
+                «Наконец поняла, почему моя монстера желтела. Шпаргалка дала
+                чёткий план — растение ожило за две недели.»
+              </p>
+              <cite class="about__review-author">— Анна, Минск</cite>
+            </blockquote>
+
+            <blockquote class="about__review">
+              <p>
+                «Скачала шпаргалку из бота — наконец поняла, почему появились
+                пятна и что проверить в первую очередь.»
+              </p>
+              <cite class="about__review-author">— Екатерина</cite>
+            </blockquote>
+
+            <blockquote class="about__review">
+              <p>
+                «Думала, что растение погибает. Шпаргалка помогла найти ошибку
+                в поливе — теперь пошли новые листья.»
+              </p>
+              <cite class="about__review-author">— Ольга</cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <header class="section-header">
+            <h2 class="section-title" id="faq-title">Ваши вопросы</h2>
+            <span class="section-title__underline" aria-hidden="true"></span>
+          </header>
+
+          <div class="faq">
+            <ul class="faq__list">
+              <li class="faq__item">
+                <button class="faq__question" type="button" aria-expanded="false">
+                  Как получить шпаргалку?
+                  <span class="faq__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq__answer">
+                  Нажмите кнопку «Получить шпаргалку в Telegram» на этой странице,
+                  откройте бота и нажмите Start. PDF придёт в чат за несколько
+                  секунд — это бесплатно.
+                </div>
+              </li>
+
+              <li class="faq__item">
+                <button class="faq__question" type="button" aria-expanded="false">
+                  Это правда бесплатно?
+                  <span class="faq__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq__answer">
+                  Да. PDF-шпаргалка приходит в боте бесплатно, без оплаты и
+                  без подписки. Никаких скрытых условий.
+                </div>
+              </li>
+
+              <li class="faq__item">
+                <button class="faq__question" type="button" aria-expanded="false">
+                  Подойдёт ли шпаргалка новичкам?
+                  <span class="faq__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq__answer">
+                  Да. Если вы только купили растение и не понимаете, как поливать
+                  — шпаргалка даст понятную отправную точку: что проверить и с
+                  чего начать.
+                </div>
+              </li>
+
+              <li class="faq__item">
+                <button class="faq__question" type="button" aria-expanded="false">
+                  Почему нужно нажать Start в боте?
+                  <span class="faq__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq__answer">
+                  Так работает Telegram: бот может отправить PDF только после
+                  того, как вы нажмёте Start. Это занимает пару секунд.
+                </div>
+              </li>
+
+              <li class="faq__item">
+                <button class="faq__question" type="button" aria-expanded="false">
+                  Можно ли спасти любое растение?
+                  <span class="faq__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq__answer">
+                  Не всегда. Но чаще растение можно стабилизировать, если
+                  вовремя понять причину — перелив, сухость, свет или вредители.
+                  Шпаргалка как раз помогает это определить.
+                </div>
+              </li>
+
+              <li class="faq__item">
+                <button class="faq__question" type="button" aria-expanded="false">
+                  Что делать, если шпаргалка не помогла?
+                  <span class="faq__icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq__answer">
+                  Значит, ситуация сложнее базовых ошибок. В боте после PDF есть
+                  кнопка «Разобрать моё растение» — напишите Марии в Telegram,
+                  и мы разберём ваш случай.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" id="final-cta" aria-labelledby="final-cta-title">
+        <div class="container">
+          <div class="final-cta__box">
+            <h2 class="final-cta__title" id="final-cta-title">
+              Получите шпаргалку, пока растение ещё можно спасти
+            </h2>
+            <p class="final-cta__text">
+              PDF бесплатно в Telegram — нажмите Start в боте, и файл придёт
+              за несколько секунд.
+            </p>
+            <a
+              class="button button--primary button--wide"
+              data-bot-cta
+              href="https://t.me/MaryBloomsBot?start=shpargalka"
+            >
+              Получить шпаргалку в Telegram
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <p class="footer__logo">Mary Blooms</p>
+          <p class="footer__legal">Политика конфиденциальности, 2025</p>
+        </div>
+
+        <p class="footer__meta">
+          УНП ME6384016<br />
+          @mary.bloooms
+        </p>
+
+        <ul class="footer__social" aria-label="Социальные сети">
+          <li>
+            <a class="footer__social-link" href="https://t.me/maryblooms_chat" target="_blank" rel="noopener noreferrer" aria-label="Telegram-чат Mary Blooms">
+              <img class="footer__social-icon" src="assets/images/icon-telegram.svg" alt="" width="30" height="30" />
+            </a>
+          </li>
+          <li>
+            <a class="footer__social-link" href="https://instagram.com/mary.bloooms" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <img class="footer__social-icon" src="assets/images/icon-instagram.svg" alt="" width="30" height="30" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <div class="sticky-cta" data-sticky-cta>
+      <a
+        class="button button--primary"
+        data-bot-cta
+        href="https://t.me/MaryBloomsBot?start=shpargalka"
+      >
+        Получить шпаргалку
+      </a>
+    </div>
+
+    <script src="src/js/config.js"></script>
+    <script src="src/js/main.js" defer></script>
+  </body>
+</html>

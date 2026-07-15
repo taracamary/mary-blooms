@@ -1,0 +1,110 @@
+@use "../abstracts/variables" as *;
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-sm;
+  background-color: $color-bg-cream;
+
+  &--overlay {
+    position: relative;
+    min-height: 260px;
+    height: 100%;
+
+    .card__image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.65) 100%);
+      pointer-events: none;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: absolute;
+    inset-inline: 20px;
+    bottom: 20px;
+    z-index: 1;
+    color: $color-white;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-family: $font-heading;
+    font-size: 22px;
+    line-height: 28px;
+    color: $color-white;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 20px;
+    opacity: 0.9;
+  }
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 400px;
+  padding: 20px;
+  border-radius: $radius-sm;
+  background-color: $color-bg-cream;
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  &__price {
+    font-size: 20px;
+    font-weight: 500;
+    color: $color-accent;
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  &__footer {
+    margin-top: auto;
+    text-align: center;
+  }
+}

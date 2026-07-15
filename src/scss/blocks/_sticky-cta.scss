@@ -1,0 +1,36 @@
+@use "../abstracts/variables" as *;
+
+.sticky-cta {
+  display: none;
+
+  @media (max-width: $breakpoint-mobile) {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 90;
+    display: flex;
+    justify-content: center;
+    padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.96) 24%);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+
+    &--hidden {
+      transform: translateY(110%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .button {
+      width: 100%;
+      max-width: 400px;
+      min-width: 0;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .page {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
+  }
+}

@@ -1,0 +1,45 @@
+@use "variables" as *;
+
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $container-padding;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding-inline: 40px;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding-inline: $container-padding-mobile;
+  }
+}
+
+@mixin section-title {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.1;
+  color: $color-green;
+  text-align: center;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 32px;
+  }
+}
+
+@mixin section-underline {
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin: 20px auto 0;
+  background-color: $color-green;
+  border-radius: 16px;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
