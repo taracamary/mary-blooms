@@ -1,0 +1,1466 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mary Blooms — PDF Cheatsheet Layout</title>
+  <style>
+    :root {
+      --paper: #f7f3ea;
+      --paper-soft: #fbf8f1;
+      --ink: #2f3a2e;
+      --sage: #9ba694;
+      --moss: #5f6f5a;
+      --taupe: #8a7d6c;
+      --clay: #c7b9a3;
+      --line: #d8d0c2;
+      --forest: #243427;
+      --olive: #7a7d55;
+      --olive-dark: #5f6041;
+      --sage-deep: #7f8c75;
+      --terracotta: #c9825e;
+      --terracotta-soft: #e4b093;
+      --dusty-rose: #c98e95;
+      --rose-soft: #ead1cf;
+      --field-grid: rgba(95, 111, 90, 0.045);
+      --serif: "Cormorant Garamond", "Libre Baskerville", Georgia, serif;
+      --sans: Inter, Manrope, "Segoe UI", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      background: #e9e3d8;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 11pt;
+      line-height: 1.54;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      padding: 24px;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      html,
+      body {
+        width: 210mm;
+        padding: 0;
+        background: var(--paper);
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+    }
+
+    @media screen {
+      .page {
+        zoom: 0.86;
+      }
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto 24px;
+      padding: 20mm 17mm 18mm;
+      overflow: visible;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.28), transparent 34%),
+        linear-gradient(var(--field-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--field-grid) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, 18mm 18mm, 18mm 18mm, auto;
+      box-shadow: 0 20px 48px rgba(47, 58, 46, 0.12);
+      break-after: page;
+      page-break-after: always;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      right: 0;
+      bottom: 0;
+      width: 58mm;
+      height: 72mm;
+      background: radial-gradient(
+        ellipse at 100% 100%,
+        color-mix(in srgb, var(--accent, var(--sage)) 22%, transparent),
+        transparent 72%
+      );
+      pointer-events: none;
+    }
+
+    .page:last-child {
+      break-after: auto;
+      page-break-after: auto;
+    }
+
+    .page::after {
+      content: attr(data-page);
+      position: absolute;
+      right: 17mm;
+      bottom: 9mm;
+      color: color-mix(in srgb, var(--accent, var(--clay)) 72%, var(--taupe));
+      font: 700 8pt/1 var(--sans);
+      letter-spacing: 0.12em;
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 2.4mm;
+      color: var(--sage);
+      font: 0/1 var(--sans);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .meta::before {
+      content: attr(data-mark);
+      display: inline-block;
+      width: auto;
+      height: auto;
+      border: 0;
+      color: color-mix(in srgb, var(--accent, var(--moss)) 62%, var(--taupe));
+      font: 700 7pt/1 var(--sans);
+      letter-spacing: 0.08em;
+    }
+
+    .meta::after {
+      content: "";
+      flex: 1;
+      max-width: 18mm;
+      height: 1px;
+      background: var(--line);
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      max-width: 128mm;
+      font-size: 43pt;
+      line-height: 0.96;
+    }
+
+    h2 {
+      max-width: 126mm;
+      font-size: 31pt;
+      line-height: 1.02;
+    }
+
+    h3 {
+      margin: 0 0 4mm;
+      color: color-mix(in srgb, var(--accent, var(--moss)) 72%, var(--forest));
+      font: 600 9.8pt/1.28 var(--sans);
+      letter-spacing: 0.03em;
+    }
+
+    p {
+      margin: 0 0 4.2mm;
+    }
+
+    .lead {
+      font-size: 11.8pt;
+      line-height: 1.56;
+    }
+
+    .small {
+      color: var(--taupe);
+      font-size: 8.9pt;
+      line-height: 1.48;
+    }
+
+    strong,
+    .key {
+      color: var(--forest);
+      font-weight: 700;
+    }
+
+    em,
+    .aside {
+      color: color-mix(in srgb, var(--taupe) 82%, var(--ink));
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .term {
+      color: color-mix(in srgb, var(--accent, var(--moss)) 76%, var(--forest));
+      font-weight: 650;
+    }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 2mm;
+      color: color-mix(in srgb, var(--accent, var(--moss)) 72%, var(--taupe));
+      font: 700 6.8pt/1 var(--sans);
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .editorial-note {
+      margin: 5mm 0;
+      padding: 4.5mm 0 4.5mm 6mm;
+      border-left: 1.4pt solid color-mix(in srgb, var(--accent, var(--sage)) 64%, var(--line));
+      color: color-mix(in srgb, var(--ink) 84%, var(--taupe));
+      font-family: var(--serif);
+      font-size: 12.2pt;
+      font-style: italic;
+      line-height: 1.38;
+    }
+
+    .editorial-note p:last-child,
+    .mini-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 2.4mm;
+      margin: 3mm 0 4.2mm;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mini-list li {
+      position: relative;
+      padding-left: 5.5mm;
+      line-height: 1.45;
+    }
+
+    .mini-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: color-mix(in srgb, var(--accent, var(--sage)) 70%, var(--taupe));
+    }
+
+    .rule {
+      width: 30mm;
+      height: 1px;
+      margin: 8mm 0;
+      background: linear-gradient(90deg, var(--accent, var(--clay)), transparent);
+    }
+
+    .thin-rule {
+      height: 1px;
+      margin: 5mm 0 4mm;
+      background: var(--line);
+    }
+
+    .frame {
+      border: 0.5pt solid color-mix(in srgb, var(--accent, var(--line)) 44%, var(--line));
+      border-top: 2.2mm solid color-mix(in srgb, var(--accent, var(--sage)) 58%, var(--paper-soft));
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.42), transparent 55%),
+        color-mix(in srgb, var(--paper-soft) 78%, transparent);
+      padding: 8mm;
+    }
+
+    .line-block {
+      padding-top: 4.5mm;
+      border-top: 0.5pt solid color-mix(in srgb, var(--accent, var(--line)) 24%, var(--line));
+    }
+
+    .note-line {
+      padding-left: 6mm;
+      border-left: 1.2pt solid var(--accent, var(--sage));
+    }
+
+    .nav {
+      display: none;
+    }
+
+    .nav span {
+      white-space: nowrap;
+    }
+
+    .photo {
+      position: relative;
+      display: block;
+      min-height: 42mm;
+      overflow: hidden;
+      border: 0;
+      border-radius: 0 18mm 0 0;
+      background: color-mix(in srgb, var(--paper-soft) 80%, var(--clay));
+      color: transparent;
+      font-size: 0;
+    }
+
+    .photo.has-image {
+      padding: 0;
+      background: #e8e2d6;
+      color: inherit;
+    }
+
+    .photo.has-image img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 4.8mm;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 8mm;
+      line-height: 1.48;
+    }
+
+    .checklist li::before {
+      content: "";
+      position: absolute;
+      top: 1.5mm;
+      left: 0;
+      width: 3.2mm;
+      height: 3.2mm;
+      border: 0.6pt solid var(--accent, var(--sage));
+      background: color-mix(in srgb, var(--accent, var(--sage)) 16%, transparent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: var(--ink);
+      font-size: 8.35pt;
+      line-height: 1.35;
+    }
+
+    th {
+      padding: 2.4mm 2mm 2.6mm;
+      border-bottom: 0.6pt solid color-mix(in srgb, var(--accent, var(--clay)) 70%, var(--line));
+      color: color-mix(in srgb, var(--accent, var(--moss)) 72%, var(--forest));
+      font-weight: 600;
+      text-align: left;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      position: relative;
+      padding: 2.8mm 2mm;
+      border-bottom: 0.45pt solid var(--line);
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: color-mix(in srgb, var(--accent, var(--sage)) 5%, transparent);
+    }
+
+    tbody td:first-child {
+      padding-left: 6mm;
+    }
+
+    tbody td:first-child::before {
+      content: "";
+      position: absolute;
+      left: 1.5mm;
+      top: 4mm;
+      width: 2.2mm;
+      height: 2.2mm;
+      border-radius: 50%;
+      background: var(--accent, var(--sage));
+      opacity: 0.72;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .table-wrap {
+      position: relative;
+      padding: 4mm 3.5mm 3.5mm;
+      background:
+        linear-gradient(var(--field-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--field-grid) 1px, transparent 1px),
+        color-mix(in srgb, var(--paper-soft) 60%, transparent);
+      background-size: 8mm 8mm;
+      border-top: 0.6pt solid color-mix(in srgb, var(--accent, var(--line)) 64%, var(--line));
+      border-bottom: 0.6pt solid color-mix(in srgb, var(--accent, var(--line)) 64%, var(--line));
+      border-left: 3mm solid color-mix(in srgb, var(--accent, var(--sage)) 56%, var(--paper-soft));
+    }
+
+    .grid-6 {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 5mm;
+    }
+
+    .page:nth-of-type(1) { --accent: var(--olive); }
+    .page:nth-of-type(2) { --accent: var(--sage-deep); }
+    .page:nth-of-type(3) { --accent: var(--terracotta); }
+    .page:nth-of-type(4) { --accent: var(--dusty-rose); }
+    .page:nth-of-type(5) { --accent: var(--olive-dark); }
+    .page:nth-of-type(6) { --accent: var(--terracotta); }
+    .page:nth-of-type(7) { --accent: var(--sage-deep); }
+    .page:nth-of-type(8) { --accent: var(--forest); }
+    .page:nth-of-type(9) { --accent: var(--terracotta-soft); }
+    .page:nth-of-type(10) { --accent: var(--olive); }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 16mm;
+      height: 1.4mm;
+      margin-top: 4mm;
+      background: color-mix(in srgb, var(--accent, var(--sage)) 78%, var(--paper));
+    }
+
+    .page-cover {
+      padding: 28mm 19mm 22mm;
+    }
+
+    .page-cover .meta {
+      margin-bottom: 18mm;
+    }
+
+    .page-cover .lead {
+      width: 106mm;
+      margin-top: 10mm;
+      border-left: 1.2pt solid color-mix(in srgb, var(--accent) 56%, var(--line));
+      padding-left: 6mm;
+    }
+
+    .page-cover .signature {
+      position: absolute;
+      left: 19mm;
+      bottom: 15mm;
+      color: var(--taupe);
+    }
+
+    .page-cover .photo {
+      position: absolute;
+      right: 17mm;
+      bottom: 26mm;
+      width: 58mm;
+      height: 90mm;
+      border-radius: 0 18mm 0 0;
+    }
+
+    .page-checklist .intro {
+      width: 138mm;
+      margin-top: 8mm;
+    }
+
+    .page-checklist .check-frame {
+      width: 122mm;
+      margin-top: 5mm;
+      padding: 6mm;
+      transform: none;
+    }
+
+    .page-checklist .checklist {
+      gap: 4mm;
+    }
+
+    .page-checklist .dont {
+      position: absolute;
+      right: 17mm;
+      bottom: 34mm;
+      width: 48mm;
+      color: color-mix(in srgb, var(--taupe) 88%, var(--ink));
+    }
+
+    .page-checklist .dont h3 {
+      color: color-mix(in srgb, var(--accent) 46%, var(--taupe));
+    }
+
+    .page-table h2,
+    .page-table .intro {
+      width: 136mm;
+    }
+
+    .page-table .intro {
+      margin-top: 8mm;
+    }
+
+    .page-table .table-wrap {
+      margin-top: 7mm;
+    }
+
+    .page-table .after-table {
+      margin-top: 4mm;
+      color: var(--taupe);
+      font-size: 8.4pt;
+    }
+
+    .page-table .bottom-notes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7mm;
+      margin-top: 5mm;
+    }
+
+    .page-spots .intro {
+      width: 120mm;
+      margin-top: 7mm;
+    }
+
+    .page-spots .photo {
+      position: absolute;
+      right: 17mm;
+      top: 36mm;
+      width: 48mm;
+      height: 52mm;
+      border-radius: 14mm 0 14mm 0;
+    }
+
+    .page-spots .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1.12fr;
+      gap: 8mm;
+      margin-top: 9mm;
+    }
+
+    .page-spots .comparison .frame {
+      border-top-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+    }
+
+    .page-spots .comparison > .line-block {
+      color: color-mix(in srgb, var(--taupe) 86%, var(--ink));
+    }
+
+    .page-spots .comparison > .line-block h3 {
+      color: color-mix(in srgb, var(--accent) 48%, var(--taupe));
+    }
+
+    .page-spots .observe {
+      width: 100mm;
+      margin-top: 7mm;
+    }
+
+    .page-spots .final {
+      position: absolute;
+      right: 17mm;
+      bottom: 25mm;
+      width: 72mm;
+      margin-top: 0;
+      color: color-mix(in srgb, var(--taupe) 84%, var(--ink));
+    }
+
+    .page-growth .table-wrap {
+      margin-top: 7mm;
+    }
+
+    .page-growth .bottom-notes {
+      margin-top: 5mm;
+    }
+
+    .diagnostic-close {
+      margin-top: 3.5mm;
+      width: 136mm;
+    }
+
+    .page-water .grid-6 {
+      display: block;
+    }
+
+    .page-water {
+      font-size: 10.1pt;
+      line-height: 1.48;
+    }
+
+    .page-water p {
+      margin-bottom: 2.6mm;
+    }
+
+    .page-water .small {
+      font-size: 8.5pt;
+      line-height: 1.42;
+    }
+
+    .page-water h3 {
+      margin-bottom: 2mm;
+    }
+
+    .page-water .intro {
+      width: 104mm;
+      margin-top: 4mm;
+    }
+
+    .page-water .photo {
+      position: absolute;
+      top: 48mm;
+      right: 17mm;
+      width: 40mm;
+      min-height: 46mm;
+      height: 50mm;
+      border-radius: 18mm 0 0 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .page-water .principle {
+      position: relative;
+      z-index: 1;
+      width: 118mm;
+      margin-top: 4mm;
+      font-size: 10.1pt;
+      line-height: 1.48;
+    }
+
+    .page-water .groups {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3.5mm;
+      margin-top: 3.2mm;
+      width: 176mm;
+      color: color-mix(in srgb, var(--taupe) 88%, var(--ink));
+    }
+
+    .page-water .groups h3 {
+      color: color-mix(in srgb, var(--accent) 46%, var(--taupe));
+    }
+
+    .page-water .water-note {
+      margin-top: 2mm;
+      width: 132mm;
+    }
+
+    .page-water .signals {
+      width: 104mm;
+      margin-top: 2.5mm;
+      padding: 0 0 0 5mm;
+      border: 0;
+      border-left: 1.2pt solid color-mix(in srgb, var(--accent) 52%, var(--line));
+      background: transparent;
+      color: color-mix(in srgb, var(--taupe) 86%, var(--ink));
+    }
+
+    .page-water .winter {
+      position: static;
+      width: 132mm;
+      margin-top: 3mm;
+      padding-top: 2.5mm;
+      border-top: 0.5pt solid var(--line);
+      color: color-mix(in srgb, var(--taupe) 88%, var(--ink));
+    }
+
+    .page-water .winter h3 {
+      color: color-mix(in srgb, var(--accent) 46%, var(--taupe));
+    }
+
+    .page-light .intro {
+      width: 114mm;
+      margin-top: 6mm;
+    }
+
+    .page-light h2 {
+      max-width: 120mm;
+    }
+
+    .page-light {
+      font-size: 10.3pt;
+      line-height: 1.5;
+    }
+
+    .page-light p {
+      margin-bottom: 3mm;
+    }
+
+    .page-light .small {
+      font-size: 8.6pt;
+      line-height: 1.44;
+    }
+
+    .page-light h3 {
+      margin-bottom: 2.3mm;
+    }
+
+    .page-light .photo {
+      position: absolute;
+      right: 17mm;
+      top: 43mm;
+      width: 46mm;
+      height: 60mm;
+      border-radius: 0 0 18mm 0;
+    }
+
+    .page-light .light-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      margin-top: 4mm;
+      width: 118mm;
+    }
+
+    .page-light .story {
+      width: 118mm;
+      margin-top: 3.8mm;
+    }
+
+    .page-light .place {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3.5mm;
+      margin-top: 4mm;
+      width: 118mm;
+    }
+
+    .page-light .questions {
+      position: absolute;
+      right: 17mm;
+      top: 128mm;
+      width: 53mm;
+      margin-top: 0;
+      padding: 5mm;
+      background: color-mix(in srgb, var(--paper-soft) 76%, var(--accent) 24%);
+      border: 0.5pt solid color-mix(in srgb, var(--accent) 34%, var(--line));
+      border-top: 2mm solid color-mix(in srgb, var(--accent) 52%, var(--paper-soft));
+      box-shadow: 0 1.5mm 4mm color-mix(in srgb, var(--forest) 6%, transparent);
+    }
+
+    .page-mistakes .intro {
+      width: 138mm;
+      margin-top: 4.5mm;
+    }
+
+    .page-mistakes .intro p {
+      margin-bottom: 2.6mm;
+    }
+
+    .page-mistakes .editorial-note {
+      margin-top: 2.5mm;
+      padding: 3mm 4mm;
+    }
+
+    .mistake-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.8mm 6mm;
+      margin-top: 4mm;
+    }
+
+    .mistake {
+      padding-top: 2.4mm;
+      border-top: 0.5pt solid var(--line);
+      font-size: 8.2pt;
+      line-height: 1.38;
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--accent) 6%, transparent),
+        transparent 55%
+      );
+    }
+
+    .mistake:nth-child(3) {
+      grid-column: auto;
+      width: auto;
+    }
+
+    .mistake .num {
+      display: block;
+      margin-bottom: 1.8mm;
+      color: var(--clay);
+      font: 7.5pt/1 var(--sans);
+      letter-spacing: 0.12em;
+    }
+
+    .page-mistakes .outro {
+      margin-top: 3.5mm;
+      padding-top: 3mm;
+      border-top: 0.6pt solid var(--line);
+      width: 148mm;
+      font-size: 8.4pt;
+      line-height: 1.42;
+    }
+
+    .page-mistakes .outro p {
+      margin-bottom: 2.2mm;
+    }
+
+    .page-new h2 {
+      max-width: 124mm;
+      color: var(--ink);
+      font-size: 28pt;
+      line-height: 1.02;
+    }
+
+    .page-new {
+      font-size: 9.3pt;
+      line-height: 1.42;
+    }
+
+    .page-new .intro {
+      width: 122mm;
+      margin-top: 3.5mm;
+    }
+
+    .page-new .intro p {
+      margin-bottom: 2.2mm;
+    }
+
+    .page-new .start {
+      width: 122mm;
+      margin-top: 3mm;
+      padding: 4mm 4.5mm;
+      font-size: 8.7pt;
+      line-height: 1.38;
+    }
+
+    .page-new .start h3 {
+      margin-bottom: 1.8mm;
+    }
+
+    .page-new .start p {
+      margin-bottom: 2mm;
+    }
+
+    .page-new .start .mini-list {
+      gap: 1.8mm;
+      margin: 2mm 0 3mm;
+    }
+
+    .page-new .photo {
+      position: absolute;
+      right: 17mm;
+      top: 42mm;
+      bottom: auto;
+      width: 42mm;
+      height: 64mm;
+      border-radius: 0 20mm 0 20mm;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .page-new .notes-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5mm;
+      width: 122mm;
+      margin-top: 3.5mm;
+    }
+
+    .page-new .new-note {
+      width: auto;
+      margin-top: 0;
+      padding: 0 0 0 4mm;
+      border-top: 0;
+      border-left: 0.8pt solid color-mix(in srgb, var(--accent) 42%, var(--line));
+      color: color-mix(in srgb, var(--taupe) 88%, var(--ink));
+      font-size: 8.3pt;
+      line-height: 1.38;
+    }
+
+    .page-new .new-note h3 {
+      margin-bottom: 1.8mm;
+      color: color-mix(in srgb, var(--accent) 48%, var(--taupe));
+    }
+
+    .page-new .new-note p {
+      margin-bottom: 2mm;
+    }
+
+    .page-closing {
+      padding: 22mm 19mm 32mm;
+    }
+
+    .page-closing h2 {
+      margin-top: 8mm;
+    }
+
+    .page-closing .photo {
+      position: absolute;
+      right: 17mm;
+      top: 40mm;
+      width: 46mm;
+      height: 76mm;
+      border-radius: 22mm 22mm 0 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .page-closing .closing-text {
+      position: relative;
+      z-index: 1;
+      width: 116mm;
+      margin-top: 5mm;
+      font-size: 10pt;
+      line-height: 1.46;
+    }
+
+    .page-closing .closing-text p {
+      margin-bottom: 2.4mm;
+    }
+
+    .page-closing a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--accent, var(--clay)) 55%, var(--line));
+      text-underline-offset: 0.18em;
+    }
+
+    .page-closing a:hover {
+      color: var(--forest);
+    }
+
+    .page-closing .cta {
+      position: relative;
+      z-index: 1;
+      width: 116mm;
+      margin-top: 4.5mm;
+      margin-bottom: 0;
+      padding: 4mm 0 0;
+      border-top: 0.6pt solid var(--clay);
+    }
+
+    .page-closing .cta h3 {
+      margin-bottom: 2mm;
+      color: color-mix(in srgb, var(--accent) 42%, var(--ink));
+      font-family: var(--serif);
+      font-size: 14.5pt;
+      font-weight: 500;
+      line-height: 1.18;
+    }
+
+    .page-closing .cta p {
+      margin-bottom: 2mm;
+      font-size: 9.6pt;
+      line-height: 1.44;
+    }
+
+    .page-closing .cta .mini-list {
+      margin: 2mm 0 2.5mm;
+      gap: 1.5mm;
+      font-size: 8.6pt;
+      line-height: 1.38;
+    }
+
+    .page-closing .cta-hook {
+      color: color-mix(in srgb, var(--taupe) 82%, var(--ink));
+      font-family: var(--serif);
+      font-size: 10.8pt;
+      font-style: italic;
+      line-height: 1.34;
+    }
+
+    .page-closing .contacts {
+      position: absolute;
+      left: 19mm;
+      right: 19mm;
+      bottom: 14mm;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3.5mm 8mm;
+      align-items: end;
+      width: auto;
+      padding-top: 4mm;
+      border-top: 0.55pt solid color-mix(in srgb, var(--line) 70%, var(--clay));
+      background: transparent;
+    }
+
+    .page-closing .contacts-brand {
+      display: grid;
+      gap: 1.2mm;
+      padding-right: 6mm;
+      border-right: 0.55pt solid color-mix(in srgb, var(--line) 70%, var(--clay));
+    }
+
+    .page-closing .contacts-brand .label {
+      margin-bottom: 0;
+      color: color-mix(in srgb, var(--accent) 55%, var(--taupe));
+    }
+
+    .page-closing .contacts-brand strong {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 13pt;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .page-closing .contacts-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2mm 6mm;
+      align-content: end;
+    }
+
+    .page-closing .contact-item {
+      display: grid;
+      gap: 0.8mm;
+      min-width: 0;
+    }
+
+    .page-closing .contact-item .kind {
+      color: color-mix(in srgb, var(--taupe) 88%, var(--ink));
+      font: 700 6.4pt/1 var(--sans);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .page-closing .contact-item .value {
+      color: var(--ink);
+      font-size: 8.8pt;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <section class="page page-cover" data-page="01">
+    <h1>Когда с растением что-то не так</h1>
+    <div class="rule"></div>
+    <div class="lead">
+      <p>Когда у растения <span class="term">желтеет лист</span>, появляются <span class="term">пятна</span> или оно долго стоит на месте, обычно хочется сразу что-то поменять в уходе: полить, пересадить, купить удобрение.</p>
+      <p><em>Я помню свою монстеру в первый год:</em> листья желтели один за другим, а я то наливала воды, то пересаживала, потому что казалось, что так и надо. Стало только хуже, пока я не начала смотреть на растение внимательнее, а не хвататься за первое решение из интернета.</p>
+      <p>Здесь я собрала то, на что сама смотрю, когда приходит вопрос про растение, с которым что-то изменилось в уходе или внешнем виде. Это не готовый ответ на любую ситуацию, но помогает <strong>понять, с чего начать</strong> и куда двигаться дальше, чтобы не усугубить своими же действиями.</p>
+      <p>В этой шпаргалке я рассмотрю три ситуации, с которыми чаще всего ко мне приходят: <span class="term">желтеют листья</span>, <span class="term">появляются пятна</span>, <span class="term">растение перестало расти</span>. На второй странице короткий порядок действий, который подходит почти в любом из этих случаев.</p>
+    </div>
+    <div class="photo has-image" aria-label="Монстера в керамическом горшке">
+      <img src="images/01-cover.png" alt="Монстера с лёгкой желтизной листа" width="460" height="720">
+    </div>
+    <div class="signature small">
+      <p>Шпаргалка Mary Blooms<br>@mary.bloooms</p>
+    </div>
+  </section>
+
+  <section class="page page-checklist" data-page="02">
+    <h2>Прежде чем что-то менять</h2>
+    <div class="intro">
+      <p>Чаще всего мне приходят сообщения вроде «что делать, листья желтеют» или «появились пятна, помогите». Обычно в этот момент уже хочется срочно полить, пересадить или купить удобрение. Я это хорошо понимаю, сама так делала.</p>
+      <p>Но по одному листу или одному пятну редко можно сразу сказать, что именно не так. Сначала я <strong>смотрю на всё вместе</strong>: где стоит растение, когда его поливали, что в уходе менялось за последние недели.</p>
+      <p>С листьями бывает обманчиво: снаружи видно желтизну или пятно, а причина часто в <span class="term">грунте</span> и <span class="term">корнях</span>. Грунт долго не просыхает, появился запах из горшка, растение вялое при влажной земле — это уже важные сигналы.</p>
+      <p><em>Вытаскивать растение из горшка сразу не нужно,</em> но проверить грунт пальцем или деревянной палочкой обычно стоит.</p>
+      <p>Если растение недавно купили, ему часто нужно время привыкнуть к дому. В первые недели я стараюсь <strong>не пересаживать</strong> и не менять уход резко, а просто поставить туда, где есть рассеянный свет без прямого полуденного солнца, и понаблюдать.</p>
+    </div>
+    <div class="frame check-frame">
+      <h3>Чек-лист перед любыми изменениями</h3>
+      <ul class="checklist">
+        <li><strong>Сначала ничего не меняю:</strong> не пересаживаю, не подкармливаю.</li>
+        <li>Смотрю на грунт: сухой, влажный или мокрый, когда был последний полив.</li>
+        <li>Вспоминаю про свет: куда выходит окно, не переставляла ли растение, не дует ли туда холодный воздух.</li>
+        <li>Смотрю на динамику: один лист или много, проблема новая или уже несколько недель, рост остановился после покупки или без видимой причины.</li>
+        <li><strong>Делаю одно изменение</strong> и наблюдаю 1–2 недели, прежде чем пробовать следующее.</li>
+      </ul>
+    </div>
+    <div class="dont line-block small">
+      <h3>Чего я бы сейчас не делала</h3>
+      <p>Не поливала бы «на всякий случай», если грунт не проверили. Не пересаживала бы только потому, что растение выглядит грустно. Не давала бы удобрения, чтобы «подбодрить». И не меняла бы сразу и место, и полив, и горшок, иначе потом непонятно, что именно сработало или навредило.</p>
+    </div>
+  </section>
+
+  <section class="page page-table" data-page="03">
+    <h2>Желтеют листья</h2>
+    <div class="intro">
+      <p>Это один из вопросов, с которым мне чаще всего пишут. И почти всегда за ним стоит тревога: «я уже что-то сделала не так» или «растение умирает». Чаще всего это <strong>не так</strong>.</p>
+      <p>Желтеют листья у многих растений время от времени, и важно понять, это отдельный случай или сигнал, что в уходе что-то идёт не так.</p>
+      <p>Я смотрю на три вещи: <span class="term">сколько листьев желтеет</span>, какой <span class="term">грунт</span> в горшке и что менялось в последние недели. Один пожелтевший лист редко что-то объясняет сам по себе, поэтому смотрю на всё вместе.</p>
+    </div>
+    <div class="table-wrap">
+      <h3>На что обратить внимание</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Что видите</th>
+            <th>Что это может значить</th>
+            <th>Что сделать сейчас</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Желтеет один нижний лист, остальные зелёные</td>
+            <td>часто естественное старение</td>
+            <td>обычно ничего, просто наблюдать</td>
+          </tr>
+          <tr>
+            <td>Желтеет несколько листьев, грунт долго мокрый</td>
+            <td><span class="term">часто перелив</span></td>
+            <td><strong>не поливать</strong>, проверить дренаж, дать грунту просохнуть</td>
+          </tr>
+          <tr>
+            <td>Листья потеряли упругость, грунт сухой, края сухие</td>
+            <td>часто пересушка</td>
+            <td>полить после просушки, не заливать сразу большим объёмом</td>
+          </tr>
+          <tr>
+            <td>Растение бледнеет, тянется к окну</td>
+            <td>часто мало света</td>
+            <td>поставить ближе к окну, переносить постепенно</td>
+          </tr>
+          <tr>
+            <td>Желтеют листья после покупки или перестановки</td>
+            <td>часто адаптация</td>
+            <td><strong>не пересаживать</strong>, не менять уход резко, понаблюдать 2–3 недели</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="after-table"><span class="label">Пояснение</span> Слово «часто» здесь важно. У разных растений одни и те же признаки могут означать разное, поэтому смотрите не только на лист, но и на грунт, свет и то, как быстро всё меняется.</p>
+    <div class="bottom-notes small">
+      <div class="line-block">
+        <h3>Что проверить в горшке</h3>
+        <p>Если грунт пахнет затхло, долго не просыхает или растение вялое при влажной земле, я бы сначала разобралась с поливом, а не срезала желтые листья один за другим. То, что мы видим на листе, нередко <strong>начинается у корней</strong>.</p>
+      </div>
+      <div class="line-block">
+        <h3>Пока непонятна причина</h3>
+        <p><strong>Не срезала бы все жёлтые листья</strong> сразу. Не пересаживала бы «на всякий случай». Не подкармливала бы, чтобы «вернуть зелень». И не поливала бы каждый день, если грунт и так не просыхает.</p>
+      </div>
+    </div>
+    <p class="diagnostic-close small"><em>Если после корректировки полива и света ничего не меняется недели две</em>, или желтеют листья один за другим без остановки, тогда уже нужен разбор именно вашего растения, а не общих советов.</p>
+  </section>
+
+  <section class="page page-spots" data-page="04">
+    <h2>Пятна на листьях</h2>
+    <div class="intro">
+      <p>Когда появляются пятна, многие сразу думают про болезнь или вредителей. <em>Я сама раньше так же паниковала и начинала искать, чем обработать растение.</em></p>
+      <p>Со временем поняла: <strong>не каждое пятно опасно</strong>. И по одному пятну на фото обычно мало что понятно, поэтому я смотрю, меняется ли оно со временем и что происходит с <span class="term">грунтом</span>.</p>
+    </div>
+    <div class="photo has-image" aria-label="Лист с пятном крупным планом">
+      <img src="images/04-spots.png" alt="Лист комнатного растения с пятном" width="320" height="340">
+    </div>
+    <div class="comparison">
+      <div class="line-block">
+        <h3>Скорее спокойно, если</h3>
+        <p><strong>Пятно не растёт неделю и больше</strong>, ткань под ним плотная, остальные листья выглядят нормально. У некоторых растений тёмные или светлые участки на листьях это особенность вида или реакция на свет, а не болезнь.</p>
+        <p>Если растение в целом выглядит здоровым и продолжает выпускать новые листья, одно пятно не всегда повод для срочных действий.</p>
+      </div>
+      <div class="frame">
+        <h3>Стоит присмотреться, если</h3>
+        <p><strong>Пятно увеличивается</strong>, ткань вокруг мягкая или желтеет, появляются новые пятна на других листьях. Если грунт долго мокрый, а на листе появились бугорки или «мокрые» участки, это может быть связано с водой и корнями.</p>
+        <p>На изнанке листа стоит посмотреть отдельно: нет ли <span class="term">мелких точек</span>, <span class="term">паутинки</span>, <span class="term">липкого налёта</span>.</p>
+      </div>
+    </div>
+    <div class="observe">
+      <h3>Как я наблюдаю за пятном</h3>
+      <ul class="checklist small">
+        <li><strong>Смотрю, растёт пятно</strong> или стоит на месте.</li>
+        <li><strong>Проверяю грунт:</strong> сухой, влажный или давно мокрый.</li>
+        <li>Осматриваю изнанку листа и соседние листья.</li>
+        <li>Вспоминаю, не переливали ли недавно или не переставляли ли растение.</li>
+        <li><strong>Наблюдаю 5–7 дней</strong>, если растение не ухудшается, прежде чем что-то менять.</li>
+      </ul>
+    </div>
+    <div class="final line-block small">
+      <h3>Если пока непонятно, что происходит</h3>
+      <p><strong>Не обрезать всё сразу.</strong> Не начинать обработки «на всякий случай». Не пересаживать и не подкармливать растение в этот момент.</p>
+      <p><em>Если пятна продолжают появляться</em>, растение сбрасывает листья или за несколько дней становится только хуже, лучше остановиться и разобраться с конкретной ситуацией, а не пробовать всё подряд.</p>
+    </div>
+  </section>
+
+  <section class="page page-table page-growth" data-page="05">
+    <h2>Растение не растёт</h2>
+    <div class="intro">
+      <p>Когда проходят недели, а новых листьев нет, кажется, что растение «стоит мёртвым грузом». С таким ощущением ко мне тоже приходят, и оно очень узнаваемое.</p>
+      <p>Но <strong>отсутствие роста</strong> не всегда значит, что растение погибает. Иногда оно просто на паузе, иногда ему не хватает <span class="term">света</span> или полив идёт не в ту сторону, а иногда оно ещё привыкает к новому дому.</p>
+      <p>Начинаю с простых вопросов: когда растение купили, какой сейчас сезон, где оно стоит и как ведёт себя <span class="term">грунт</span>. Один признак «нет новых листьев» причину сам по себе не объясняет, поэтому смотрю на всё вместе.</p>
+    </div>
+    <div class="table-wrap">
+      <h3>На что обратить внимание</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Что видите</th>
+            <th>Что это может значить</th>
+            <th>Что сделать сейчас</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Зима, мало света, растение выглядит нормально</td>
+            <td>часто сезонная пауза</td>
+            <td><strong>не менять уход резко</strong>, не подкармливать «для роста»</td>
+          </tr>
+          <tr>
+            <td>Недавно купили или пересадили</td>
+            <td>часто адаптация</td>
+            <td>понаблюдать 2–3 недели, не менять всё сразу</td>
+          </tr>
+          <tr>
+            <td>Растение тянется к окну, листья мельчают</td>
+            <td><span class="term">мало света</span></td>
+            <td>поставить ближе к окну с рассеянным светом, переносить постепенно</td>
+          </tr>
+          <tr>
+            <td>Грунт сохнет очень быстро, корни видны у края горшка</td>
+            <td>часто мало места для корней</td>
+            <td>запланировать пересадку, когда растение в хорошем состоянии</td>
+          </tr>
+          <tr>
+            <td>Грунт долго мокрый, новых листьев нет</td>
+            <td><span class="term">полив или корни</span></td>
+            <td><strong>не поливать</strong>, проверить просушку, понаблюдать</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom-notes small">
+      <div class="line-block">
+        <h3>Что проверить в горшке</h3>
+        <p>Если земля пахнет затхло или растение стоит на месте при постоянно влажном грунте, я бы сначала разобралась с поливом. Новые листья не появляются, когда <strong>корням тяжело</strong>, даже если снаружи растение ещё выглядит нормально.</p>
+      </div>
+      <div class="line-block">
+        <h3>Пока непонятно, в чём дело</h3>
+        <p><strong>Не подкармливала бы</strong>, чтобы «заставить расти». Не пересаживала бы в горшок побольше без причины. Не ставила бы растение на самое солнечное место за один день. И не поливала бы чаще, если грунт и так не просыхает.</p>
+        <p><em>Если прошло больше месяца</em>, свет в порядке, полив выровнен, а растение всё равно стоит на месте или начинает сбрасывать листья, тогда уже стоит разбираться глубже и смотреть на ваш случай отдельно.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page page-water" data-page="06">
+    <h2>Как поливать, чтобы не навредить</h2>
+    <div class="grid-6">
+      <div class="intro">
+        <p>С поливом у новичков чаще всего путаница. Кто-то поливает раз в неделю «как написано в интернете», кто-то каждый день «чтобы не пересушить», а потом удивляется, почему желтеют листья при мокром грунте.</p>
+        <p><em>Такая ситуация у моих клиентов повторяется часто:</em> растение выглядит грустно, хозяйка поливает ещё раз, и становится хуже. У меня с монстерой в первый год было похоже, только я ещё и пересаживала между поливами.</p>
+        <p><span class="term">Полив</span> здесь один из главных подозреваемых. Часто проблемы начинаются не из-за капризности растения, а из-за условий ухода.</p>
+      </div>
+      <div class="photo has-image" aria-label="Проверка сухости грунта">
+        <img src="images/06-water.jpg" alt="Сухой грунт в горшке" width="340" height="400">
+      </div>
+      <div class="principle line-block">
+        <h3>Как понять, что пора поливать</h3>
+        <p>Я <strong>не ориентируюсь на календарь</strong>. Смотрю на грунт пальцем или деревянной палочкой на глубине примерно до середины горшка.</p>
+        <ul class="mini-list">
+          <li>если там сухо, то можно поливать;</li>
+          <li>если влажно или мокро, то стоит подождать;</li>
+          <li>если земля мокрая уже очень долго (5-7 дней), то это уже сигнал.</li>
+        </ul>
+        <p><em>Звучит просто, но именно этот шаг многие пропускают.</em></p>
+      </div>
+      <p class="water-note small"><span class="label">Правило</span> Если не знаете, как правильно поливать ваше растение, начните с осторожного полива после просушки на половину высоты горшка и понаблюдайте, как быстро снова высохнет грунт.</p>
+      <div class="signals frame small">
+        <h3>Три сигнала, что с поливом что-то не так:</h3>
+        <p>1. Грунт пахнет затхло или кисло 2. Растение вялое, хотя земля мокрая 3. Желтеют листья при влажном грунте, который долго не просыхает.</p>
+        <p>В таких случаях я сначала <strong>уменьшаю полив</strong> и смотрю, как ведёт себя грунт, а не хватаюсь за удобрения или пересадку. С листа мы часто видим следствие, а начинается оно нередко в горшке.</p>
+      </div>
+      <div class="groups">
+        <div class="line-block small">
+          <h3>Любят постоянную влагу</h3>
+          <p>Папоротники и многие тропические растения не терпят пересушек. Поэтому грунт надо постоянно держать влажным, но не мокрым</p>
+        </div>
+        <div class="line-block small">
+          <h3>Нужна просушка</h3>
+          <p>Большинство привычных комнатных растений, вроде монстеры, фикуса или драцены, комфортнее чувствуют себя, когда верхний слой грунта успевает подсохнуть. Часто это <strong>просушка до середины горшка</strong>.</p>
+        </div>
+        <div class="line-block small">
+          <h3>Полив реже</h3>
+          <p>Суккуленты, кактусы и замиокулькасы хорошо переносят полную просушку. Им полив нужен реже, и залить их проще, чем кажется.</p>
+        </div>
+      </div>
+      <div class="winter line-block small">
+        <h3>Зимой</h3>
+        <p>Когда мало света и в квартире жарят батареи, поливать обычно нужно реже, чем летом. Если растение стоит на месте и грунт не просыхает неделями, лишний полив только мешает.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page page-light" data-page="07">
+    <h2>Достаточно ли растению света</h2>
+    <div class="intro">
+      <p>Часто растение ставят туда, где красиво: в угол гостиной, на полку подальше от окна, в коридор. Снаружи оно ещё выглядит нормально, а через пару месяцев начинает <span class="term">тянуться к свету</span>, мельчают листья или опадают нижние.</p>
+      <p><em>С такими фото ко мне приходят регулярно</em>, и почти всегда вопрос звучит как «я же поливаю, что не так». А дело не в поливе.</p>
+      <p><strong>Свет проверяю раньше</strong>, чем начинаю менять уход. Без нормального освещения растение просто не может нормально расти, как бы аккуратно вы ни поливали.</p>
+    </div>
+    <div class="photo has-image" aria-label="Растение у окна">
+      <img src="images/07-light.png" alt="Лиана у окна при дневном свете" width="370" height="480">
+    </div>
+    <div class="light-blocks">
+      <div class="line-block">
+        <h3>Как понять, что света мало</h3>
+        <p><strong>Растение тянется к окну</strong>, междоузлия становятся длиннее, новые листья мельче предыдущих. Нижние листья могут опадать, хотя с поливом всё в порядке.</p>
+        <p>Если узнали свою ситуацию, попробуйте поставить горшок ближе к окну, куда попадает <span class="term">рассеянный дневной свет</span>. Переносить лучше постепенно, особенно если растение долго стояло в тени.</p>
+      </div>
+      <div class="line-block">
+        <h3>Как понять, что света слишком много</h3>
+        <p>На листьях появляются <span class="term">бледные или коричневые пятна</span>, лист скручивается, края подсыхают. Такое часто бывает летом на южном окне без притенения, если растение к нему не привыкло.</p>
+      </div>
+    </div>
+    <div class="story note-line small">
+      <p><em>Я сама однажды поставила эпипремнум ближе к окну и думала, что ему наконец хорошо.</em> А он начал желтеть, потому что зимой я люблю долго проветривать спальню, и рядом с окном становилось слишком холодно.</p>
+      <p>Свет был, а условия всё равно неудачные. Поэтому смотрю не только на окно, но и на то, не дует ли туда холодный воздух.</p>
+    </div>
+    <div class="place small">
+      <div>
+        <h3>Восток и запад</h3>
+        <p>На восточном и западном окне многим растениям комфортно: свет есть, но он не такой жёсткий, как в полдень на юге.</p>
+      </div>
+      <div>
+        <h3>Юг</h3>
+        <p>На южном окне летом часто нужно притенение, особенно если листья начинают обгорать.</p>
+      </div>
+      <div>
+        <h3>Север</h3>
+        <p>На северном окне живут многие растения, которые переносят меньше света, но даже они со временем могут показать, что им всё-таки мало освещения.</p>
+      </div>
+    </div>
+    <div class="questions line-block small">
+      <h3>Три вопроса, которые я задаю себе:</h3>
+      <ul class="mini-list">
+        <li>где стояло растение последние недели;</li>
+        <li>попадает ли на него рассеянный свет хотя бы несколько часов;</li>
+        <li>не стоит ли оно рядом с батареей, сквозняком или холодным подоконником.</li>
+      </ul>
+      <p>Если свет и место в порядке, а растение всё равно выглядит угнетённым, тогда можно вернуться к поливу и посмотреть, что происходит с <span class="term">грунтом</span>.</p>
+      <p>Если сомневаетесь, посмотрите, куда «смотрят» листья. Когда они разворачиваются к окну, это обычно хороший знак.</p>
+    </div>
+  </section>
+
+  <section class="page page-mistakes" data-page="08">
+    <h2>Когда хочется помочь, а становится хуже</h2>
+    <div class="intro">
+      <p>«Я уже всё перепробовала, а растение только хуже» — такие сообщения я получаю регулярно. И когда начинаешь разбирать по шагам, обычно выясняется, что за одну неделю было и пересаживание, и новый полив, и удобрение, и перестановка на другое окно.</p>
+      <p>Каждое действие по отдельности могло быть не страшным. Но вместе они дают растению <span class="term">слишком много стресса сразу</span>, и потом уже непонятно, что именно сработало или навредило.</p>
+      <div class="editorial-note">
+        <p>Я сама в начале пути делала похожее. Сейчас стараюсь сначала остановиться и посмотреть, что происходит, а не добавлять новых действий.</p>
+      </div>
+    </div>
+    <div class="mistake-grid">
+      <div class="mistake">
+        <span class="num">01</span>
+        <h3>Полив по расписанию</h3>
+        <p>«Раз в неделю всем растениям» звучит удобно, но в жизни так редко работает. У одного грунт сохнет за два дня, у другого неделю лежит влажным. <span class="term">Перелив</span> я чаще всего вижу у тех, кто поливает по привычке.</p>
+      </div>
+      <div class="mistake">
+        <span class="num">02</span>
+        <h3>Пересадка «на всякий случай»</h3>
+        <p>Растение выглядит грустно, и хочется пересадить в свежий грунт, будто это сразу всё исправит. На практике <span class="term">пересадка сама по себе стресс</span>. Особенно осторожно я отношусь к свежекупленным растениям и к зиме, когда мало света.</p>
+      </div>
+      <div class="mistake">
+        <span class="num">03</span>
+        <h3>Удобрение «чтобы ожило»</h3>
+        <p>Когда листья желтеют или растение стоит, очень хочется его подкормить. Но угнетённому растению новая подкормка часто не нужна. Сначала стоит разобраться со <strong>светом и поливом</strong>, а уже потом думать о питании.</p>
+      </div>
+      <div class="mistake">
+        <span class="num">04</span>
+        <h3>Несколько изменений за раз</h3>
+        <p>Переставили ближе к окну, пересадили, изменили полив. Через неделю растение стало хуже, но уже неясно, что именно не подошло. <strong>Я стараюсь менять что-то одно</strong> и смотреть на реакцию хотя бы неделю-две.</p>
+      </div>
+      <div class="mistake">
+        <span class="num">05</span>
+        <h3>Новое растение сразу к остальным</h3>
+        <p>Свежекупленное растение часто выглядит здоровым, а вредителей или проблему с корнями снаружи не видно. <strong>Держу отдельно</strong> несколько недель и раз в неделю осматриваю листья, в том числе с изнанки.</p>
+      </div>
+    </div>
+    <div class="outro small">
+      <p>Растению редко нужно много действий подряд. Иногда ему нужно не новое средство или действие, а <strong>время, чтобы восстановиться</strong> после изменений.</p>
+      <p><em>Если за пару недель ничего не меняется или становится хуже,</em> тогда уже стоит копать глубже, а не добавлять ещё один «способ спасения».</p>
+    </div>
+  </section>
+
+  <section class="page page-new" data-page="09">
+    <h2>Новое растение дома</h2>
+    <div class="intro">
+      <p>Когда приносишь растение из магазина, руки сами тянутся что-то сделать: сразу пересадить в красивый горшок, полить, поставить рядом с остальными, чтобы все были вместе.</p>
+      <p><em>Это очень понятная реакция.</em> Я после покупки тоже раньше хотела «начать правильно» с первого дня и из-за этого часто делала лишнее.</p>
+      <p>На самом деле растение только что <span class="term">сменило условия</span>. Ему нужно время привыкнуть к вашей квартире: к свету, температуре, влажности воздуха. В первые недели я стараюсь <strong>не усложнять уход</strong>, а дать растению спокойно освоиться.</p>
+    </div>
+    <div class="start frame">
+      <h3>С чего я начинаю</h3>
+      <ul class="mini-list">
+        <li><strong>Смотрю, где растение будет жить:</strong> нужен рассеянный дневной свет без прямого полуденного солнца.</li>
+        <li><strong>Проверяю грунт пальцем:</strong> в магазинах часто поливают обильно, и земля может быть влажной уже при покупке.</li>
+        <li><strong>Не поливаю лишний раз</strong> «на всякий случай», если грунт и так влажный.</li>
+      </ul>
+      <p>Пересадку в первые две-три недели обычно откладываю, если нет острой причины: горшок совсем крошечный, грунт не просыхает неделями, явный запах из горшка.</p>
+      <p><em>Красивое кашпо можно поставить рядом,</em> а само растение пока оставить в том горшке, в котором оно пришло.</p>
+    </div>
+    <div class="notes-row">
+      <div class="new-note small">
+        <h3>Почему я не спешу</h3>
+        <p>Свежее растение и так переживает смену места. <span class="term">Пересадка, новый грунт и подкормка</span> добавляют ещё один слой изменений. После такого «заботливого» старта нередко бывает, что растение как раз начинает сбрасывать листья или долго стоит на месте.</p>
+      </div>
+      <div class="new-note small">
+        <h3>Что делаю вместо этого</h3>
+        <p><strong>Держу новое растение отдельно</strong> от остальных несколько недель. Раз в неделю осматриваю листья, заглядываю на изнанку, смотрю, не появляется ли липкий налёт, точек или паутинки.</p>
+        <p>Поливаю только когда <span class="term">грунт подсох</span>, а не по календарю.</p>
+        <p><em>Если за две-три недели растение выглядит спокойно</em>, выпускает новые листья или хотя бы не ухудшается, значит, адаптация идёт нормально. Если же оно быстро вянет, грунт долго не просыхает или появляются новые пятна и желтизна, тогда лучше остановиться и разобраться, что именно пошло не так.</p>
+      </div>
+    </div>
+    <div class="photo has-image" aria-label="Новое растение в транспортном горшке">
+      <img src="images/09-new-plant.png" alt="Молодое растение рядом с пустым кашпо" width="340" height="520">
+    </div>
+  </section>
+
+  <section class="page page-closing" data-page="10">
+    <h2>ИТОГ</h2>
+    <div class="photo has-image" aria-label="Здоровая монстера">
+      <img src="images/10-closing.png" alt="Здоровая монстера в матовом кашпо" width="370" height="610">
+    </div>
+    <div class="closing-text">
+      <p>Когда с растением что-то не так, я сначала смотрю на <span class="term">грунт</span>, <span class="term">свет</span> и то, что менялось в уходе. Потом делаю одно изменение и жду, как растение ответит.</p>
+      <p>В этой шпаргалке я собрала тот же порядок: с чего начать, на что смотреть и чего лучше не делать в первые недели. Это помогает не паниковать и не хвататься за всё сразу.</p>
+      <p><em>Но по общим советам не всегда видно именно ваш случай — где стоит растение, каким выглядит грунт и что происходило в последние дни.</em></p>
+    </div>
+    <div class="cta">
+      <h3>Если хочется разобрать ваше растение</h3>
+      <p>Напишите мне в <strong><a href="https://t.me/taracamary">Telegram</a></strong> и пришлите фото:</p>
+      <ul class="mini-list">
+        <li>растение целиком;</li>
+        <li>лист крупно, если есть желтизна или пятна;</li>
+        <li>поверхность грунта в горшке.</li>
+      </ul>
+      <p>За пару сообщений скажу, <strong>на что смотреть в первую очередь</strong> и чего лучше не делать прямо сейчас.</p>
+      <p class="cta-hook">Так спокойнее, чем снова гуглить и пробовать всё подряд.</p>
+    </div>
+    <div class="contacts">
+      <div class="contacts-brand">
+        <span class="label">Контакты</span>
+        <strong>Mary Blooms</strong>
+      </div>
+      <div class="contacts-list">
+        <div class="contact-item">
+          <span class="kind">Instagram</span>
+          <span class="value">@mary.bloooms</span>
+        </div>
+        <div class="contact-item">
+          <span class="kind">Чат в телеграм</span>
+          <span class="value">@maryblooms_chat</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

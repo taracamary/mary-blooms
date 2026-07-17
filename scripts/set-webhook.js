@@ -1,13 +1,26 @@
 /**
  * Установка webhook для Telegram-бота.
- * Использование: TELEGRAM_BOT_TOKEN=xxx SITE_URL=https://your.app npm run webhook:set
+ *
+ * Локально: положите TELEGRAM_BOT_TOKEN и SITE_URL в .env и выполните
+ *   npm run webhook:set
+ *
+ * Или передайте переменные в окружении:
+ *   TELEGRAM_BOT_TOKEN=xxx SITE_URL=https://your.app npm run webhook:set
+ *
+ * Уже заданные переменные окружения (Vercel, shell) имеют приоритет над .env.
  */
+const path = require("path");
+
+require("dotenv").config({
+  path: path.resolve(__dirname, "../.env"),
+});
+
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const siteUrl = (process.env.SITE_URL || "").replace(/\/$/, "");
 const secret = process.env.TELEGRAM_WEBHOOK_SECRET || "";
 
 if (!token || !siteUrl) {
-  console.error("Нужны TELEGRAM_BOT_TOKEN и SITE_URL");
+  console.error("Нужны TELEGRAM_BOT_TOKEN и SITE_URL (.env или переменные окружения)");
   process.exit(1);
 }
 
@@ -30,12 +43,16 @@ fetch("https://api.telegram.org/bot" + token + "/setWebhook", {
     return res.json();
   })
   .then(function (data) {
-    console.log(data);
+    console.log({
+      ok: data.ok,
+      description: data.description,
+      webhookUrl: webhookUrl,
+    });
     if (!data.ok) {
       process.exit(1);
     }
   })
   .catch(function (err) {
-    console.error(err);
+    console.error("Не удалось установить webhook:", err.message);
     process.exit(1);
   });
